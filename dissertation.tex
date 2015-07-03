@@ -1,0 +1,89 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Modify the following line to match your school
+% Available options include `Harvard`, `Princeton`, and `NYU`.
+\documentclass[School=Harvard,natbib]{Dissertate}
+
+\usepackage{graphicx,amsmath,natbib,aastex_hack,longtable,threeparttablex,siunitx,
+lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages}
+
+\usepackage[breaklinks]{hyperref}
+\newcommand*{\blankpage}{%
+\vspace*{\fill}
+% \begin{center}
+% This page left intentionally blank 
+% \end{center}
+\vspace{\fill}}
+
+\newcommand{\CMC}{Chiang:2007p3804}
+\newcommand{\DS}{Draine:1987p3323}
+\newcommand{\BG}{Bai:2009p3370}
+\newcommand{\IN}{Ilgner:2006p3319}
+\newcommand{\OD}{Oppenheimer:1974p1573}
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand{\myemail}{}
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\unten}[1]{$_{\rm{#1}}$}
+\newcommand{\tothe}[1]{$^{\rm{#1}}$}
+\newcommand{\posion}[1]{$_{\rm{#1}}^{\rm{+}}$}
+\newcommand{\rim}{_{\mathrm{rim}}}
+\newcommand{\SL}{_{\mathrm{SL}}}
+\newcommand{\odepth}{\tau_{\mathrm{opt}}}
+\newcommand{\nH}{n_{\mathrm{H}_2}}
+\newcommand{\Npara}{N_{\parallel}}
+\newcommand{\Nperp}{N_{\perp}}
+
+
+\begin{document}
+
+% the front matter
+%\includepdf[pages={1}]{DAC_page}
+\blankpage
+\thispagestyle{empty}
+\newpage
+
+\input{frontmatter/personalize}
+\maketitle
+\copyrightpage
+\abstractpage
+\tableofcontents
+%\authorlist
+%\listoffigures
+\dedicationpage
+\acknowledgments
+
+\doublespacing
+
+% include each chapter...
+%\setcounter{chapter}{-1}  % start chapter numbering at 0
+%\include{chapters/introduction}
+%\include{chapters/chapter_130427A}
+\include{V4046Sgr2013/ms_v4046sgr2013_chapter}
+\include{hd163296/ms_hd163296_chapter}
+\include{ms_radial_092713/ms_radial_chapter}
+%\include{chapters/conclusion}
+%\begin{appendices}
+%    \include{chapters/appendixA}
+%\end{appendices}
+
+\singlespacing
+
+% the back matter
+\clearpage
+\bibliographystyle{apj}
+\bibliography{radial_flows}
+%\bibliography{grb_alpha,gcn,grbhosts}
+%\bibliography{references}
+%\addcontentsline{toc}{chapter}{References}
+%\bibliographystyle{apalike}
+
+%\include{endmatter/colophon}
+
+% For Table notes: replace first line by second line. Select ``regular expression''.
+% \\item\{([0-9a-z])\}
+% \\item\[\1\]
+
+\end{document}
