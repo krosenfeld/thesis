@@ -46,12 +46,46 @@ surveys \citep[i.e.][]{andrews11,harris14} or present detailed studies of single
 presented in Chapter \ref{chap:blagh} to \ref{chap:blagh} takes the latter approach and uses simple parametric 
 models to investigate the structure of a choice few, but very interesting, protoplanetary disks.
 
-\section{The Event Horizon Telescope}
+V4046 Sgr is a system with two stars closely orbiting each other.  Around this tight binary is a bright
+protoplanetary disk.  In chapter \ref{chap:V4046Sgr} we present Submillimimeter Array (SMA) observations of this 
+disk 
+that resolve for the
+first time a large central cavity.  In addition, we show that the distribution of gas and dust are non-commitant 
+with each other: the gas disk is large and extended while the mm-sized dust grains are concentrated in a narrow 
+ring.  Furthermore, we show that dust within ring is not completely cleared.  We argue that this configuration is 
+the hallmark of old disk sculpted by at least one large, embedded planet.  HD163296 also has a very large, bright gaseous disk, but no resolved cavity.  In chapter \ref{chap:hd163296} we 
+use 
+science verification data from the Atacama Large Millimimeter Array (ALMA) to study the vertical structure of 
+this disk.  We argue that resolved features in the images highlight how the temperature of the gas changes with
+its distance from mid-plane and explore additional, nuanced aspects of the disk structure and how they may 
+affect the observables.   In chapter \ref{chap:radial_flows} we consider what impact radial motions of gas within transition disk 
+holes may have upon spectral line emission.  We discuss several indicators of such radial flows along 
+with possible sources of confusion such as warps in the disk.
+
 
 \section{Basics of Radio Interferometry}
 \subsection{Visibilities}
 \subsection{Channel Maps}
 \subsection{VLBI}
 
-\section{Thesis Outline}
+\section{Sample Rate Conversion for the EHT}
+
+The Event Horizon Telescope (EHT) uses VLBI to observe supermassive black holes, obtaining resolution high enough
+to resolve event horizon scales of nearby targets.  These observations provide a 
+unique glimpse into one of the most extreme environments in our universe.  Using telescopes in Hawaii, Arizona, 
+and California, the collaboration has already detected structure at these scales for Sgr A$^\ast$ in the galactic 
+center and the giant elliptical galaxy M87 \citep{doeleman08,doeleman09}.  These data have provided indirect 
+evidence for existence of an event horizon \citep{broderick15} along with constraints on the degree of 
+magnetization in the jet of M87 \citep{kino15} and the orientation of Sgr A$^\ast$ \citep{broderick11}.  EHT 
+observations promise to provide tests of general relativity \citep{luminet79,johannsen10,bambi13,broderick14} as 
+well as new studies of black hole time variability \citep{doeleman09} and black hole accretion \citep{chan15}.
+
+The bright future of the EHT rests on its key ability to expand by adding more telescopes and
+incorporating new technologies into its operations.  The March 2015 observing campaign was a major milestone in
+the EHT expansion with participation from the LMT in Mexico, CARMA in California, the SMA and JCMT in Hawaii, 
+SMT in Arizona and 30m at Pico Valeta in Spain.  However, the data taken at the SMA must be processed before it
+can be correlated with the rest of the array.  In chapter \ref{chap:aphids} we describe the \APHIDS\, pipeline
+which performs a sampling rate conversion using a cluster of Graphcs Processing Units (GPUs).  This software
+is intended to be a long-term solution to enable VLBI with the SMA and has applications for other sites such 
+as ALMA that operate at a sampling rate that is not compatible with the standard VLBI data product.
 
