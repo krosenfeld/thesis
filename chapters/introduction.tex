@@ -1,5 +1,52 @@
 \chapter{Introduction}\label{chapter:introduction}
 
+INTRO PARAGRAPH HERE
+
+The data presented in this thesis was obtained using radio interferometers.  This technique combines the signals
+from pairs of radio telescopes to produce data that is sensitive to an angular scale inversely 
+proportional to the distance between the two elements.  By assembling an array with multiple 
+telescopes, an observer can accumulate information about many spatial scales and reconstruct an image.  However,
+the information contained in this image will be limited to the scales originally measured by the interferometer.
+Images with the best fidelity come from arrays that have elements at a wide variety of 
+distances to each other and the highest resolution comes from the most widely separated telescopes.
+
+figure: images of SMA and ALMA
+
+Each pair of antennas in an array forms a baseline vector (measured in wavelengths) with length $D_\lambda$ and 
+components $(u,v,w)$.  The signal voltages, $V_1(t)$ and $V_2(t)$, measured by the individual 
+elements are correlated against each other
+\begin{equation}
+r(\tau) = \lim_{\tau \to \infto} \frac{1}{2T} \int_{-T}^T V_1(t) V_2^\ast(t-\tau) d\tau.
+\end{equation}
+This operation is often done on site with data streamed directly to a correlator and the resulting 
+measurement, or visibility, is stored on disk.  However, for Very Long Baseline Interferometry (VLBI), the 
+radio telescopes can be separated by entire continents and real-time correlation is not feasible.  For these
+experiments, the signal voltages must be recorded and the visibilities calculated at some later time.  The Event
+Horizon Telescope (EHT) a leader in the developing field of (sub)-millimeter VLBI.  Observations at these 
+short wavelengths becomes more difficult as sources
+tend to become fainter and the atmosphere becomes noiser, time variable, and more opaque.  Consequently, it 
+has only been in the past few decades that facilities have been built to operate at these wavelengths.
+
+The Submillimeter Array \citep[SMA][]{ho04} is one such world class array.  Commisioned in 2003, the SMA is located on the top of 
+Maunakea on the Big Island of Hawaii at an altitude of 13,386 feet.
+It is composed of eight 6-meter diameter dishes which, like many 
+interferometers, can be moved into different configurations so that there are elements as close as 
+15 meters or as far as 500 meters.  Its recievers can operate at wavelengths from 430\,$\mu$m to 2\,mm and 
+historically have provided up to 4\,GHz of bandwidth.  A major upgrade to the array is increasing the bandwidth
+to 8\,GHz, enabling more sensitive observations and larger spectral coverage.  To participate in VLBI 
+experiments, the SMA can operate as a ``phased array'', essentially turning the interferometer into a single 
+dish telescope.
+
+Located 4450\,km away on the Chile is the Atacama Large Millimeter Array (ALMA).  This facility began early
+science operations in 2011 and has been commissioned in a staged fashion where each observing cycle offers more 
+capabilities.  Once completed, ALMA will host an impressive 66 antennas, 64 of will be 12\, dishes and
+the remaining smaller 7\,m ones.  A fully extended configuration will include baselines up to 16\,km and the 
+array will observe at wavelengths from 400\,$\mu$m to 7\,mm.  The ALMA Phasing Project (APP) will enable this
+giant array to join VLBI experiments and fringes to APEX were found in a January 2015 test \citep{matthews15}.
+
+% https://almascience.nrao.edu/documents-and-tools/alma-technical-notes-a-subset-of-documents-from-the-eoc-memo-series
+
+
 \section{Structure of Protoplanetary Disks}
 
 The canonical picture of star formation breaks this process into several stages.  Picture first a large 
@@ -20,6 +67,8 @@ work to test and develop these ideas is very diverse, ranging from experiments o
 microgravity to space missions exploring the larger rocks that remain as testament to the formation of our 
 own Solar system.  
 
+figure: early images of disks
+
 Over the past several decades, observations from interferometers operating at millimeter wavelengths have made
 significant contributions to understanding the structure of these disks.  The early maps of CO made using 3 to 5 
 telescopes in an array at 
@@ -33,6 +82,9 @@ maps of multiple species to constrain the two-dimensional structure
 \citep{aikawa99,aikawa01,vanzadelhoff01,aikawa02}.   Soon arrays detected the giant central dust holes of 
 ``transition disks''
 \citep{hughes07,brown09,andrews11}.
+
+HERE GOES A PARAGRAPH DESCRIBING SIMPLE CONCEPTION OF DISK STRUCUTRE
+figure: disk structure cartoon
 
 There exists several techniques for constraining the structure of protoplanetary disks.  Some geometric 
 properties such as size, inclination, and orientation can be calculated from an image.  The amount of dust 
@@ -53,7 +105,8 @@ that resolve for the
 first time a large central cavity.  In addition, we show that the distribution of gas and dust are non-commitant 
 with each other: the gas disk is large and extended while the mm-sized dust grains are concentrated in a narrow 
 ring.  Furthermore, we show that dust within ring is not completely cleared.  We argue that this configuration is 
-the hallmark of old disk sculpted by at least one large, embedded planet.  HD163296 also has a very large, bright gaseous disk, but no resolved cavity.  In chapter \ref{chap:hd163296} we 
+the hallmark of an old disk that is being sculpted by at least one embedded planet.  HD163296 also has a 
+very large, bright gaseous disk, but no resolved cavity.  In chapter \ref{chap:hd163296} we 
 use 
 science verification data from the Atacama Large Millimimeter Array (ALMA) to study the vertical structure of 
 this disk.  We argue that resolved features in the images highlight how the temperature of the gas changes with
@@ -62,15 +115,11 @@ affect the observables.   In chapter \ref{chap:radial_flows} we consider what im
 holes may have upon spectral line emission.  We discuss several indicators of such radial flows along 
 with possible sources of confusion such as warps in the disk.
 
-
-\section{Basics of Radio Interferometry}
-\subsection{Visibilities}
-\subsection{Channel Maps}
-\subsection{VLBI}
-
 \section{Sample Rate Conversion for the EHT}
 
-The Event Horizon Telescope (EHT) uses VLBI to observe supermassive black holes, obtaining resolution high enough
+figure: map of EHT site locations
+
+The Event Horizon Telescope (EHT) observes supermassive black holes, obtaining resolution high enough
 to resolve event horizon scales of nearby targets.  These observations provide a 
 unique glimpse into one of the most extreme environments in our universe.  Using telescopes in Hawaii, Arizona, 
 and California, the collaboration has already detected structure at these scales for Sgr A$^\ast$ in the galactic 
@@ -88,4 +137,3 @@ can be correlated with the rest of the array.  In chapter \ref{chap:aphids} we d
 which performs a sampling rate conversion using a cluster of Graphcs Processing Units (GPUs).  This software
 is intended to be a long-term solution to enable VLBI with the SMA and has applications for other sites such 
 as ALMA that operate at a sampling rate that is not compatible with the standard VLBI data product.
-
