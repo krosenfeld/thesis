@@ -1,9 +1,16 @@
 \chapter{Introduction}\label{chapter:introduction}
 
-INTRO PARAGRAPH HERE
+Thomas Young's double split experiment is often a student's first formal introduction to the ideas of 
+coherence and interference.  By observing the famous fringe pattern, Young could study the wave-like nature of 
+photons and aspects of our physical world that operate on quantum scales.  Today, the techniques of interferometry
+are ubiquitious in technical fields and their applications diverse.  To astronomers, interferometers automatically
+imply high resolution and the cabability to discern, even see, small details.  Interferometers can measure the 
+radii of stars, search for extrasolar planets, and watch stars explode. This thesis uses data from radio
+interferometers in the study of disks around young stars and massive black holes, pursuing methods and goals
+that can help resolve interesting questions in the field.
 
-The data presented in this thesis was obtained using radio interferometers.  This technique combines the signals
-from pairs of radio telescopes to produce data that is sensitive to an angular scale inversely 
+Radio interferometry combines the signals
+from pairs of telescopes to produce data that is sensitive to an angular scale inversely 
 proportional to the distance between the two elements.  By assembling an array with multiple 
 telescopes, an observer can accumulate information about many spatial scales and reconstruct an image.  However,
 the information contained in this image will be limited to the scales originally measured by the interferometer.
@@ -16,7 +23,7 @@ Each pair of antennas in an array forms a baseline vector (measured in wavelengt
 components $(u,v,w)$.  The signal voltages, $V_1(t)$ and $V_2(t)$, measured by the individual 
 elements are correlated against each other
 \begin{equation}
-r(\tau) = \lim_{\tau \to \infto} \frac{1}{2T} \int_{-T}^T V_1(t) V_2^\ast(t-\tau) d\tau.
+r(\tau) = \lim_{\tau \to \infty} \frac{1}{2T} \int_{-T}^T V_1(t) V_2^\ast(t-\tau) d\tau.
 \end{equation}
 This operation is often done on site with data streamed directly to a correlator and the resulting 
 measurement, or visibility, is stored on disk.  However, for Very Long Baseline Interferometry (VLBI), the 
@@ -46,7 +53,6 @@ giant array to join VLBI experiments and fringes to APEX were found in a January
 
 % https://almascience.nrao.edu/documents-and-tools/alma-technical-notes-a-subset-of-documents-from-the-eoc-memo-series
 
-
 \section{Structure of Protoplanetary Disks}
 
 The canonical picture of star formation breaks this process into several stages.  Picture first a large 
@@ -74,7 +80,7 @@ significant contributions to understanding the structure of these disks.  The ea
 telescopes in an array at 
 Owens Valley revealed bound, rotating disks with diameters 
 similar to the dimensions of own solar system 
-\citep{sargent87,weintraub87,weintraub89,sargent91,koerner93a,koerner93b,koerner95}.  The emission pattern
+\citep{sargent87,weintraub87,weintraub89,sargent91,koerner93,koerner93b,koerner95}.  The emission pattern
 matching Keplerian 
 rotation was then used to measure some systems' dynamical masses 
 \citep{dutrey98,guilloteau98,guilloteau99,simon00} and
@@ -83,8 +89,17 @@ maps of multiple species to constrain the two-dimensional structure
 ``transition disks''
 \citep{hughes07,brown09,andrews11}.
 
-HERE GOES A PARAGRAPH DESCRIBING SIMPLE CONCEPTION OF DISK STRUCUTRE
 figure: disk structure cartoon
+
+The main two ingredients in the disk are gas and dust.  The majority of the disk mass will be in molecular 
+hydrogen, but observations focus on easier detect trace molecules such as $^{12}$CO and its isotopologues.
+The dust grains are detected via their bulk thermal emission which, when the emisison is optically thin,  
+can give a reliable measure of mass (CITE).  Interferometric observations taken at millimeter wavelengths
+can resolve structure of nearby protoplanetary disks on scales of a few tens to hundreds of AU.  The motion of 
+material in the disk can also be studied using these same telescopes by studying how the pattern of line emission
+from molecules such as CO changes with frequency.  The bulk motion of the gas relative towards the observer 
+changes as a function of position in the disk. To an observer scanning over frequency, different parts of the 
+disk seem to light up when its Doppler shifted emission matches the observer's frequency window.
 
 There exists several techniques for constraining the structure of protoplanetary disks.  Some geometric 
 properties such as size, inclination, and orientation can be calculated from an image.  The amount of dust 
@@ -94,24 +109,29 @@ it to what is observed.  Often the density, temperature, and velocity profiles o
 follow power laws or some other parametric function.  There also exist some grids and models that try to 
 calculate abundances in a self-consistent manner.  Additionally, researchers usually either try to constrain 
 populations using 
-surveys \citep[i.e.][]{andrews11,harris14} or present detailed studies of single, interesting disks.  The work
-presented in Chapter \ref{chap:blagh} to \ref{chap:blagh} takes the latter approach and uses simple parametric 
+surveys \citep[i.e.][]{andrews11,oberg11,harris12} or present detailed studies of single, 
+interesting disks.  The work
+presented in chapters \ref{chap:v4046sgr_structure} to \ref{chap:radial_flows} takes the latter approach and uses simple parametric 
 models to investigate the structure of a choice few, but very interesting, protoplanetary disks.
 
 V4046 Sgr is a system with two stars closely orbiting each other.  Around this tight binary is a bright
-protoplanetary disk.  In chapter \ref{chap:V4046Sgr} we present Submillimimeter Array (SMA) observations of this 
+protoplanetary disk.  In chapter \ref{chap:v4046sgr_structure} we present Submillimeter Array (SMA) observations of this 
 disk 
 that resolve for the
 first time a large central cavity.  In addition, we show that the distribution of gas and dust are non-commitant 
 with each other: the gas disk is large and extended while the mm-sized dust grains are concentrated in a narrow 
 ring.  Furthermore, we show that dust within ring is not completely cleared.  We argue that this configuration is 
 the hallmark of an old disk that is being sculpted by at least one embedded planet.  HD163296 also has a 
-very large, bright gaseous disk, but no resolved cavity.  In chapter \ref{chap:hd163296} we 
+very large, bright gaseous disk, but no resolved cavity.  
+
+In chapter \ref{chap:hd163296} we 
 use 
 science verification data from the Atacama Large Millimimeter Array (ALMA) to study the vertical structure of 
 this disk.  We argue that resolved features in the images highlight how the temperature of the gas changes with
 its distance from mid-plane and explore additional, nuanced aspects of the disk structure and how they may 
-affect the observables.   In chapter \ref{chap:radial_flows} we consider what impact radial motions of gas within transition disk 
+affect the observables.   
+
+In chapter \ref{chap:radial_flows} we consider what impact radial motions of gas within transition disk 
 holes may have upon spectral line emission.  We discuss several indicators of such radial flows along 
 with possible sources of confusion such as warps in the disk.
 
@@ -133,7 +153,7 @@ The bright future of the EHT rests on its key ability to expand by adding more t
 incorporating new technologies into its operations.  The March 2015 observing campaign was a major milestone in
 the EHT expansion with participation from the LMT in Mexico, CARMA in California, the SMA and JCMT in Hawaii, 
 SMT in Arizona and 30m at Pico Valeta in Spain.  However, the data taken at the SMA must be processed before it
-can be correlated with the rest of the array.  In chapter \ref{chap:aphids} we describe the \APHIDS\, pipeline
+can be correlated with the rest of the array.  In chapter \ref{chap:aphids} we describe the APHIDS pipeline
 which performs a sampling rate conversion using a cluster of Graphcs Processing Units (GPUs).  This software
 is intended to be a long-term solution to enable VLBI with the SMA and has applications for other sites such 
 as ALMA that operate at a sampling rate that is not compatible with the standard VLBI data product.

@@ -8,6 +8,11 @@
 \usepackage{graphicx,amsmath,natbib,aastex_hack,longtable,threeparttablex,siunitx,
 lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages}
 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{2em}
+
 \usepackage[breaklinks]{hyperref}
 \newcommand*{\blankpage}{%
 \vspace*{\fill}
@@ -59,12 +64,12 @@ lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages}
 
 % include each chapter...
 %\setcounter{chapter}{-1}  % start chapter numbering at 0
-%\include{chapters/introduction}
+\include{chapters/introduction}
 %\include{chapters/chapter_130427A}
-\include{V4046Sgr2013/ms_v4046sgr2013_chapter}
-\include{hd163296/ms_hd163296_chapter}
-\include{ms_radial_092713/ms_radial_chapter}
-%\include{chapters/conclusion}
+\include{V4046Sgr2013/ms_v4046sgr2013_chapter} % chap:v4046sgr_structure
+\include{hd163296/ms_hd163296_chapter}  % chap:hd163296
+\include{ms_radial_092713/ms_radial_chapter} % chap:radial_flows
+\include{chapters/conclusion}
 %\begin{appendices}
 %    \include{chapters/appendixA}
 %\end{appendices}
@@ -74,10 +79,7 @@ lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages}
 % the back matter
 \clearpage
 \bibliographystyle{apj}
-%\bibliography{radial_flows}
-\bibliography{v4046sgr,hd163296,radial}
-%\bibliography{grb_alpha,gcn,grbhosts}
-%\bibliography{references}
+\bibliography{introduction,v4046sgr,hd163296,radial,conclusion}
 %\addcontentsline{toc}{chapter}{References}
 %\bibliographystyle{apalike}
 
