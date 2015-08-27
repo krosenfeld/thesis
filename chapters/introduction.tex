@@ -3,101 +3,119 @@
 Thomas Young's double split experiment is often a student's first formal introduction to the ideas of 
 coherence and interference.  By observing the famous fringe pattern, Young could study the wave-like nature of 
 photons and aspects of our physical world that operate on quantum scales.  Today, the techniques of interferometry
-are ubiquitious in technical fields and their applications diverse.  To astronomers, interferometers automatically
-imply high resolution and the cabability to discern, even see, small details.  Interferometers can measure the 
-radii of stars, search for extrasolar planets, and watch stars explode. This thesis uses data from radio
-interferometers in the study of disks around young stars and massive black holes, pursuing methods and goals
-that can help resolve interesting questions in the field.
+are ubiquitious over a wide array of technical fields.  Even within astronomy the scientific applications are 
+diverse: interferometers  search for extrasolar planets, find subtle ripples in the early universe and watch 
+stars explode.  But in all of these examples the astronomer is searching for small details in our sky that, 
+without the resolving power of interferometry, might remain hidden.  Going along with this theme, this thesis 
+presents four studies using observations at millimeter wavelenghts that work to reveal fine structures in disks 
+around young stars and massive black holes.  We cover a wide variety of techniques, from enabling the production 
+of useful data products to the basic interpretation of never before seen features.
 
-Radio interferometry combines the signals
-from pairs of telescopes to produce data that is sensitive to an angular scale inversely 
-proportional to the distance between the two elements.  By assembling an array with multiple 
+Millimeter interferometry is intimately tied to the earlier development of techniques and technologies 
+used at longer wavelengths.  The essential operation combines the signals from pairs of telescopes to produce a 
+measure that is sensitive to some angular scale on the sky.  This scale shrinks as the distance
+between the two elements grows.  By assembling an array with multiple 
 telescopes, an observer can accumulate information about many spatial scales and reconstruct an image.  However,
 the information contained in this image will be limited to the scales originally measured by the interferometer.
 Images with the best fidelity come from arrays that have elements at a wide variety of 
 distances to each other and the highest resolution comes from the most widely separated telescopes.
 
-figure: images of SMA and ALMA
+\begin{figure}[t!]
+\plottwo{chapters/sma_small.jpg}{chapters/ALMA_NRAO_padilla_14.jpg}
+\caption{{\it Left:} The SMA in its compact configuration with an antenna transporter on the right hand side 
+({\it photo credit:} J. Weintroub).  {\it Right:} Part of the ALMA array along with the high site control room and correlator building ({\it photo credit}: ALMA (ESO/NAOJ/NRAO), C. Padilla).}
+\label{fig:sma_alma}
+\end{figure}
 
 Each pair of antennas in an array forms a baseline vector (measured in wavelengths) with length $D_\lambda$ and 
 components $(u,v,w)$.  The signal voltages, $V_1(t)$ and $V_2(t)$, measured by the individual 
-elements are correlated against each other
+elements are correlated against each other:
 \begin{equation}
 r(\tau) = \lim_{\tau \to \infty} \frac{1}{2T} \int_{-T}^T V_1(t) V_2^\ast(t-\tau) d\tau.
 \end{equation}
 This operation is often done on site with data streamed directly to a correlator and the resulting 
 measurement, or visibility, is stored on disk.  However, for Very Long Baseline Interferometry (VLBI), the 
-radio telescopes can be separated by entire continents and real-time correlation is not feasible.  For these
-experiments, the signal voltages must be recorded and the visibilities calculated at some later time.  The Event
-Horizon Telescope (EHT) a leader in the developing field of (sub)-millimeter VLBI.  Observations at these 
-short wavelengths becomes more difficult as sources
-tend to become fainter and the atmosphere becomes noiser, time variable, and more opaque.  Consequently, it 
-has only been in the past few decades that facilities have been built to operate at these wavelengths.
+radio telescopes can be separated by entire continents and real-time correlation is not usually feasible.  For 
+these experiments, the signal voltages must be recorded and the visibilities calculated at some later time.  The 
+Event Horizon Telescope (EHT) is a leader in the developing field of millimeter VLBI and relies on existing 
+observatories.  The difficulty of observing at these short wavelengths increases as the atmosphere becomes 
+noiser, time variable, and more opaque.  Consequently, facilities that can operate at these wavelengths are a 
+precious resource.
 
-The Submillimeter Array \citep[SMA][]{ho04} is one such world class array.  Commisioned in 2003, the SMA is located on the top of 
-Maunakea on the Big Island of Hawaii at an altitude of 13,386 feet.
-It is composed of eight 6-meter diameter dishes which, like many 
-interferometers, can be moved into different configurations so that there are elements as close as 
-15 meters or as far as 500 meters.  Its recievers can operate at wavelengths from 430\,$\mu$m to 2\,mm and 
-historically have provided up to 4\,GHz of bandwidth.  A major upgrade to the array is increasing the bandwidth
-to 8\,GHz, enabling more sensitive observations and larger spectral coverage.  To participate in VLBI 
-experiments, the SMA can operate as a ``phased array'', essentially turning the interferometer into a single 
-dish telescope.
+The Submillimeter Array \citep[SMA][]{ho04} is one such world class array.  Commisioned in 2003, the SMA is 
+located on the top of Maunakea on the Big Island of Hawaii at an altitude of 13,386 feet.
+It is composed of eight 6 meter diameter dishes which, like many interferometers, can be moved into different 
+configurations so that there are elements as close as 15 meters or as far as 500 meters (see Figure 
+\ref{fig:sma_alma}).  Its recievers can operate at wavelengths from 430\,microns to 2\,millimeters and 
+historically have provided up to 4\,GHz of bandwidth.  Chapter \ref{chap:v4046sgr_structure} features an 
+exquisite dataset from the SMA that combines observations taken by multiple configurations.  A major upgrade to 
+the array is increasing the bandwidth to 8\,GHz, enabling more sensitive observations and larger spectral 
+coverage.  To participate in VLBI experiments, the SMA can operate as a ``phased array'', essentially turning 
+the interferometer into a single dish telescope.  Chapter \ref{chap:aphids} addresses a key step of how to 
+integrate the SMA into millimeter VLBI observations such as those taken by the EHT.
 
-Located 4450\,km away on the Chile is the Atacama Large Millimeter Array (ALMA).  This facility began early
+Located 4450\,km away in Chile is the Atacama Large Millimeter Array (ALMA).  This facility began early
 science operations in 2011 and has been commissioned in a staged fashion where each observing cycle offers more 
-capabilities.  Once completed, ALMA will host an impressive 66 antennas, 64 of will be 12\, dishes and
-the remaining smaller 7\,m ones.  A fully extended configuration will include baselines up to 16\,km and the 
-array will observe at wavelengths from 400\,$\mu$m to 7\,mm.  The ALMA Phasing Project (APP) will enable this
-giant array to join VLBI experiments and fringes to APEX were found in a January 2015 test \citep{matthews15}.
-
-% https://almascience.nrao.edu/documents-and-tools/alma-technical-notes-a-subset-of-documents-from-the-eoc-memo-series
+capabilities.  Once completed, ALMA will host an impressive 66 antennas, 64 of will be 12\,meter dishes and
+the remaining smaller 7\,meter ones (see Figure \ref{fig:sma_alma}).  We used publickly available data from 
+this instrument in Chapters \ref{chap:hd163296} and \ref{chap:radial_flows}.  A fully extended configuration 
+will include baselines up to 16\,kilometer and the array will observe at wavelengths from 400\,microns to 
+7\,millimeters.  The ALMA Phasing Project (APP) will enable this giant array to join VLBI experiments and 
+fringes to APEX were found during a January 2015 test \citep{matthews15}.
 
 \section{Structure of Protoplanetary Disks}
 
-The canonical picture of star formation breaks this process into several stages.  Picture first a large 
+Both the SMA and ALMA are excellent observatories with which to study young stars.  Within a few hundred parsecs 
+of the Sun there are multiple star forming regions and stellar moving groups.  Their relative proximity to us 
+makes it possible to resolve physical structures in these regions and our great observatories have returned 
+spectacular glimpses of the complicated processes that produce a star.  The canonical picture of star formation 
+breaks this process into several stages \citep{shu87,mckee07}.  Picture first a large 
 molecular cloud within which there are complicated sub structures: clumps and cores of 
 concentrated gas and dust.  Over time these self-gravitating units will contract,  the material collapses into 
-a disk to conserve angular momentum, and nascent stars ignite their thermonuclear engines.  Jets, envelopes, 
-winds, and outflows punctuate this 
-process which may likely be disturbed by the swift pull of a passing star or the constant presense of a nearby 
-neighbor.  Whole fields, techniques, and technologies have been developed to study single chapters of this 
-complicated story and ours begins near the very end when only the disk and young star remain.
+a disk to conserve angular momentum, and nascent stars ignite their thermonuclear engines.  Jets, winds, and 
+outflows punctuate this process.  The system might also be perturbed by the swift pull of a nearby passing star 
+or the constant presence of stellar partners forming a hierarchical system.  Whole fields, techniques, and 
+technologies have been developed to study single chapters of this 
+complicated story and ours begins near its end when only the disk and young star remain.
 
 Over time, this disk of gas and dust will dissipate leaving trace debris: astroids and comets, dust and planets.
 So while we may be at the end of the star's formation, this protoplanetary disk is the stage where planets are
 born.  Their composition and structure provides the crucial initial conditions that must enable a diverse 
-population of planets.  However, theories of planet formation are still developing and require the consideration 
-of physical processes acting on many physical scales and over a huge range of times.  As such, there 
-work to test and develop these ideas is very diverse, ranging from experiments on grain interactions in 
-microgravity to space missions exploring the larger rocks that remain as testament to the formation of our 
-own Solar system.  
+population of planets.  Theories of planet formation are still developing and require the consideration 
+of physical processes acting on many physical scales and over a huge range of times.  As such, the
+work to test and develop these ideas is quite varied, ranging from theoretical calculations to controlled 
+experiments in the lab to the frontiers of space exploration.
 
-figure: early images of disks
+\begin{figure}[t]
+\vspace{4cm}
+\includegraphics[width=0.5\textwidth]{chapters/koerner93.jpg}
+\caption{\citet{koerner93} imaged the disk around GM Aur using the Owens Valley Millimeter array. This figure
+from their paper 
+show maps of the $^{13}$CO $J$=2$-$1 emission which on the left is integrated over velocity (or frequency) and 
+the right has been weighted by the channel velocity.}
+\end{figure}
 
 Over the past several decades, observations from interferometers operating at millimeter wavelengths have made
-significant contributions to understanding the structure of these disks.  The early maps of CO made using 3 to 5 
-telescopes in an array at 
-Owens Valley revealed bound, rotating disks with diameters 
-similar to the dimensions of own solar system 
-\citep{sargent87,weintraub87,weintraub89,sargent91,koerner93,koerner93b,koerner95}.  The emission pattern
-matching Keplerian 
-rotation was then used to measure some systems' dynamical masses 
-\citep{dutrey98,guilloteau98,guilloteau99,simon00} and
-maps of multiple species to constrain the two-dimensional structure 
-\citep{aikawa99,aikawa01,vanzadelhoff01,aikawa02}.   Soon arrays detected the giant central dust holes of 
-``transition disks''
-\citep{hughes07,brown09,andrews11}.
+significant contributions to understanding the structure of these disks.  The early maps of the CO emission
+made using 3 to 5 telescopes in an array at Owens Valley revealed bound, rotating disks with diameters 
+similar to the dimensions of own solar system \citep{sargent87,weintraub89,koerner93}.  Emission from other 
+molecules were then surveyed \citep{dutrey97} and studies of multiple isotopologues were used to constrain the 
+two-dimensional structure of some disks \citep{dartois03,pietu07,qi11} aided by the development of 
+chemical models \citep{aikawa99,aikawa01}.  Images of the dust also revealed interesting structures such as
+giant holes centered around the star for a class of ``transition disks'' \citep{hughes07,brown09,andrews11} and 
+evidence for binary interactions \citep{akeson98}.
 
-figure: disk structure cartoon
+%% figure: disk structure cartoon?
 
 The main two ingredients in the disk are gas and dust.  The majority of the disk mass will be in molecular 
-hydrogen, but observations focus on easier detect trace molecules such as $^{12}$CO and its isotopologues.
+hydrogen, but observations focus on easier to detect trace molecules such as $^{12}$CO and its isotopologues.
 The dust grains are detected via their bulk thermal emission which, when the emisison is optically thin,  
-can give a reliable measure of mass (CITE).  Interferometric observations taken at millimeter wavelengths
-can resolve structure of nearby protoplanetary disks on scales of a few tens to hundreds of AU.  The motion of 
-material in the disk can also be studied using these same telescopes by studying how the pattern of line emission
-from molecules such as CO changes with frequency.  The bulk motion of the gas relative towards the observer 
+can give a measure of the dust mass \citep{hildebrand83}.  Interferometric observations taken at 
+millimeter wavelengths can resolve structure of nearby protoplanetary disks on scales of a few tens to 
+hundreds of astronomical units.   The bulk motion of material in the disk can also be 
+studied using these same telescopes by studying how the pattern of line emission
+from molecules such as CO changes with frequency \citep{beckwith93}.  The velocity of the gas relative to the 
+observer 
 changes as a function of position in the disk. To an observer scanning over frequency, different parts of the 
 disk seem to light up when its Doppler shifted emission matches the observer's frequency window.
 
@@ -115,29 +133,30 @@ presented in chapters \ref{chap:v4046sgr_structure} to \ref{chap:radial_flows} t
 models to investigate the structure of a choice few, but very interesting, protoplanetary disks.
 
 V4046 Sgr is a system with two stars closely orbiting each other.  Around this tight binary is a bright
-protoplanetary disk.  In chapter \ref{chap:v4046sgr_structure} we present Submillimeter Array (SMA) observations of this 
-disk 
-that resolve for the
-first time a large central cavity.  In addition, we show that the distribution of gas and dust are non-commitant 
-with each other: the gas disk is large and extended while the mm-sized dust grains are concentrated in a narrow 
-ring.  Furthermore, we show that dust within ring is not completely cleared.  We argue that this configuration is 
-the hallmark of an old disk that is being sculpted by at least one embedded planet.  HD163296 also has a 
-very large, bright gaseous disk, but no resolved cavity.  
+protoplanetary disk.  In chapter \ref{chap:v4046sgr_structure} we present SMA observations 
+of this disk that reveal a large central cavity in the dust.  In addition, we show that the distribution dust 
+does not follow that of the gas: the gas disk is large and extended while the 
+mm-sized dust grains are concentrated in a narrow ring.  Furthermore, it appears that the amount of dust left 
+within the ring along with the size of the canvity is inconsistent with photoevaporative scenarios.  We argue 
+that this configuration is the hallmark of an old disk that is being sculpted by at least one embedded planet.  
 
-In chapter \ref{chap:hd163296} we 
-use 
-science verification data from the Atacama Large Millimimeter Array (ALMA) to study the vertical structure of 
+HD163296 also has a very large, gas rich disk, but no observed central cavity.  In chapter \ref{chap:hd163296} 
+we use science verification data from ALMA to study the vertical structure of 
 this disk.  We argue that resolved features in the images highlight how the temperature of the gas changes with
-its distance from mid-plane and explore additional, nuanced aspects of the disk structure and how they may 
-affect the observables.   
+its distance from mid-plane and explore how additional, nuanced aspects of the disk structure may affect
+the data.  Chapter \ref{chap:radial_flows} then considers what impact radial motions of gas within transition 
+disk holes may have upon spectral line emission.  We discuss several indicators of such radial flows along 
+with possible sources of confusion such as warps in the disk.  One disk has provided intriguing
+evidence of such flows \citep{casassus13,cassasus15} and future observations may provide others.
 
-In chapter \ref{chap:radial_flows} we consider what impact radial motions of gas within transition disk 
-holes may have upon spectral line emission.  We discuss several indicators of such radial flows along 
-with possible sources of confusion such as warps in the disk.
+\begin{figure}[t]
+\plotone{chapters/EHT-baselines.png}
+\caption{A selection of EHT baselines viewed looking back from the galactic center where Sgr$^\ast$ lies.  The 
+2015 campaign included sites 
+from Hawaii, California, Arizona, Mexico, and Spain. ({\it image credit}: the EHT collaboration)}
+\end{figure}
 
 \section{Sample Rate Conversion for the EHT}
-
-figure: map of EHT site locations
 
 The Event Horizon Telescope (EHT) observes supermassive black holes, obtaining resolution high enough
 to resolve event horizon scales of nearby targets.  These observations provide a 
@@ -149,10 +168,12 @@ magnetization in the jet of M87 \citep{kino15} and the orientation of Sgr A$^\as
 observations promise to provide tests of general relativity \citep{luminet79,johannsen10,bambi13,broderick14} as 
 well as new studies of black hole time variability \citep{doeleman09} and black hole accretion \citep{chan15}.
 
+
 The bright future of the EHT rests on its key ability to expand by adding more telescopes and
 incorporating new technologies into its operations.  The March 2015 observing campaign was a major milestone in
-the EHT expansion with participation from the LMT in Mexico, CARMA in California, the SMA and JCMT in Hawaii, 
-SMT in Arizona and 30m at Pico Valeta in Spain.  However, the data taken at the SMA must be processed before it
+the EHT expansion with participation from the Large Millimeter Telescope (LMT) in Mexico, Combined Array for 
+Research in Millimeter-wave Astornome (CARMA) in California, the SMA and James Clerk Maxwell Telescope (JCMT) in
+ Hawaii, SMT in Arizona and the 30m dish at Pico Valeta in Spain.  However, the data taken at the SMA must be processed before it
 can be correlated with the rest of the array.  In chapter \ref{chap:aphids} we describe the APHIDS pipeline
 which performs a sampling rate conversion using a cluster of Graphcs Processing Units (GPUs).  This software
 is intended to be a long-term solution to enable VLBI with the SMA and has applications for other sites such 
