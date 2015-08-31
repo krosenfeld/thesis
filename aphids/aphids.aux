@@ -1,0 +1,109 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Resampling phased SWARM for VLBI}{118}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:aphids}{{5}{118}{Resampling phased SWARM for VLBI}{chapter.5}{}}
+\citation{deller07}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{119}{section.5.1}}
+\citation{oppenheim10,lyons11}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Sample Rate Conversion}{120}{section.5.2}}
+\newlabel{sec:src_basics}{{5.2}{120}{Sample Rate Conversion}{section.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A sketch of upsampling when $L = 3$. The left column shows how the spectrum changes with each operation and the right column mirrors the effect in the time domain.\relax }}{121}{figure.caption.39}}
+\newlabel{fig:upsampling}{{5.1}{121}{A sketch of upsampling when $L = 3$. The left column shows how the spectrum changes with each operation and the right column mirrors the effect in the time domain.\relax }{figure.caption.39}{}}
+\citation{oppenheim10,lyons11,vaidyanathan93}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces A sketch of downsampling when $M = 3$. The left column shows how the spectrum changes with each operation and the right column mirrors the effect in the time domain.\relax }}{122}{figure.caption.40}}
+\newlabel{fig:downsampling}{{5.2}{122}{A sketch of downsampling when $M = 3$. The left column shows how the spectrum changes with each operation and the right column mirrors the effect in the time domain.\relax }{figure.caption.40}{}}
+\citation{vanderveldt12,adamek14,kim14a}
+\citation{crochiere81}
+\citation{wang01}
+\citation{kim14a}
+\citation{kim14a}
+\citation{adamek14}
+\citation{vanderveldt12}
+\citation{oppenheim10}
+\newlabel{fig:resample_basic}{{\caption@xref {fig:resample_basic}{ on input line 303}}{123}{Sample Rate Conversion}{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Basic multirate resampling signal flow graph.\relax }}{123}{figure.caption.41}}
+\citation{fraser89}
+\citation{kim14b}
+\citation{kim14b}
+\citation{gold69,yeh82}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Resampling in the Fourier Domain}{124}{subsection.5.2.1}}
+\newlabel{sec:fourier_resampling}{{5.2.1}{124}{Resampling in the Fourier Domain}{subsection.5.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Frequency response for FIR filters equivalent to linear and nearest interpolation when $L/M = 64/39$. The orange region shows the first Nyquist zone of the target $L/Mf_0$ sample rate. Spectral components at all other frequencies are aliased into this region.\relax }}{125}{figure.caption.42}}
+\newlabel{fig:windows}{{5.4}{125}{Frequency response for FIR filters equivalent to linear and nearest interpolation when $L/M = 64/39$. The orange region shows the first Nyquist zone of the target $L/Mf_0$ sample rate. Spectral components at all other frequencies are aliased into this region.\relax }{figure.caption.42}{}}
+\citation{bi11}
+\citation{fraser89}
+\newlabel{eq:sinc}{{5.4}{126}{Resampling in the Fourier Domain}{equation.5.2.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}APHIDS}{126}{section.5.3}}
+\newlabel{sec:aphids}{{5.3}{126}{APHIDS}{section.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Correlation coefficient loss from resampling \relax }}{127}{table.caption.43}}
+\newlabel{tab:loss}{{5.1}{127}{Correlation coefficient loss from resampling \relax }{table.caption.43}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Hardware and Data description}{127}{subsection.5.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Resampling Block}{129}{subsection.5.3.2}}
+\newlabel{sec:resamp_block}{{5.3.2}{129}{Resampling Block}{subsection.5.3.2}{}}
+\citation{cooley65}
+\citation{schatzman96}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Timing measurements of APHIDS kernels \relax }}{132}{table.caption.49}}
+\newlabel{tab:kernel_times}{{5.2}{132}{Timing measurements of APHIDS kernels \relax }{table.caption.49}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Timing Performance}{132}{subsection.5.3.3}}
+\citation{cooper70,thompson01}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}FFT Accuracy}{133}{subsection.5.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Quantization}{133}{subsection.5.3.5}}
+\citation{lyons11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Inverting the Polyphase Filterbank}{134}{subsection.5.3.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.7}Current Status and Results}{135}{subsection.5.3.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.8}Conclusion and Future Development}{136}{subsection.5.3.8}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}The APHIDS Team}{137}{section.5.4}}
+\newlabel{fig:aphids_flow_chart}{{\caption@xref {fig:aphids_flow_chart}{ on input line 454}}{138}{APHIDS}{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces This signal flow chart shows an overview of APHIDS. The red boxes represent operations on the GPU while blue boxes are for the CPU. Once the B-engine frames have been unpacked, each of the two phased sum streams are processed independently and in a serial fashion.\relax }}{138}{figure.caption.45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces This figure shows both channels of the detrended amplitude spectral density of phased SWARM along with the R2DBE (SMA single-dish in gray).\relax }}{139}{figure.caption.46}}
+\newlabel{fig:swarm_amp_spec}{{5.6}{139}{This figure shows both channels of the detrended amplitude spectral density of phased SWARM along with the R2DBE (SMA single-dish in gray).\relax }{figure.caption.46}{}}
+\newlabel{fig:resampling_block}{{\caption@xref {fig:resampling_block}{ on input line 541}}{140}{Resampling Block}{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces The resampling block trims the phased SWARM guard bands and shifts the passband to DC as part of the resampling operation.\relax }}{140}{figure.caption.47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces This figure shows the performance of radix-2, single precision, batched, complex-to-real, 1D transforms measured on our GPU cluster. The benchmark conventions follow FFTW (http://www.fftw.org/speed/method.html).\relax }}{141}{figure.caption.48}}
+\newlabel{fig:C2R_performance}{{5.8}{141}{This figure shows the performance of radix-2, single precision, batched, complex-to-real, 1D transforms measured on our GPU cluster. The benchmark conventions follow FFTW (http://www.fftw.org/speed/method.html).\relax }{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Accuracy of the FFT algorithm as measured by the $L_2$ error from benchFFT\relax }}{142}{figure.caption.51}}
+\newlabel{fig:fft_accuracy}{{5.9}{142}{Accuracy of the FFT algorithm as measured by the $L_2$ error from benchFFT\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces This figure shows the cosmic fringe detection at 1.3\tmspace  +\thinmuskip {.1667em}mm between phased SWARM and the LMT, a deprojected baseline of more than 4 G$\lambda $ (figure from Mike Titus).\relax }}{142}{figure.caption.52}}
+\newlabel{fig:sma_lmt}{{5.10}{142}{This figure shows the cosmic fringe detection at 1.3\,mm between phased SWARM and the LMT, a deprojected baseline of more than 4 G$\lambda $ (figure from Mike Titus).\relax }{figure.caption.52}{}}
+\@setckpt{aphids/aphids}{
+\setcounter{page}{143}
+\setcounter{equation}{8}
+\setcounter{enumi}{5}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{8}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{5}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{10}
+\setcounter{table}{2}
+\setcounter{Item}{11}
+\setcounter{Hfootnote}{17}
+\setcounter{Hy@AnnotLevel}{0}
+\setcounter{bookmark@seq@number}{27}
+\setcounter{DefaultLines}{2}
+\setcounter{L@lines}{0}
+\setcounter{@pps}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{lofdepth}{1}
+\setcounter{lotdepth}{1}
+\setcounter{eu@}{0}
+\setcounter{eu@i}{0}
+\setcounter{mkern}{0}
+\setcounter{parentequation}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{AM@survey}{0}
+\setcounter{ContinuedFloat}{0}
+\setcounter{section@level}{0}
+}

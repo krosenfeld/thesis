@@ -7,6 +7,9 @@
 
 \usepackage{graphicx,amsmath,natbib,aastex_hack,longtable,threeparttablex,siunitx,
 lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages,caption}
+\usepackage{tikz}
+\usetikzlibrary{dsp,chains,shapes,arrows}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -71,6 +74,7 @@ lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages,caption}
 \include{V4046Sgr2013/ms_v4046sgr2013_chapter} % chap:v4046sgr_structure
 \include{hd163296/ms_hd163296_chapter}  % chap:hd163296
 \include{ms_radial_092713/ms_radial_chapter} % chap:radial_flows
+\include{aphids/aphids} % chap:aphids
 \include{chapters/conclusion}
 %\begin{appendices}
 %    \include{chapters/appendixA}
@@ -81,7 +85,7 @@ lscape,microtype,aas_macros,multirow,booktabs,alltt,pdfpages,caption}
 % the back matter
 \clearpage
 \bibliographystyle{apj}
-\bibliography{introduction,v4046sgr,hd163296,radial,conclusion}
+\bibliography{introduction,v4046sgr,hd163296,radial,aphids,conclusion}
 %\addcontentsline{toc}{chapter}{References}
 %\bibliographystyle{apalike}
 
