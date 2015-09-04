@@ -7,9 +7,9 @@
 
 %%\section*{abstract}
 
-To enable VLBI observations with heteregeneous arrays, it is sometimes necessary to pre-process
+To enable VLBI observations with heterogeneous arrays, it is sometimes necessary to pre-process
 the data before correlating.  In this chapter we describe a software solution to change the 
-samping rate of the data taken at the SMA for the EHT's March 2015 observing campaign.  We 
+sampling rate of the data taken at the SMA for the EHT's March 2015 observing campaign.  We 
 focus on the sampling rate conversion problem and investigate several possible algorithms.  The project
 has applications for future VLBI observations at the SMA as well as other sites with similar 
 challenges.
@@ -183,7 +183,7 @@ conversion can be helpfully thought of as the combination of upsampling and down
 \citep{oppenheim10,lyons11}.  
 Upsampling, (also commonly called interpolation or expansion), increases the sampling rate 
 by a factor of $L$ with the insertion of $L-1$ zeroes between the original $x[i]$.  A low-pass, 
-anti-imaging filter smooths the signal and supresses the high frequency spectral images greater than the original 
+anti-imaging filter smooths the signal and suppresses the high frequency spectral images greater than the original 
 $f_0$ that have been introduced by the zero inserts.  Figure \ref{fig:upsampling} sketches this process in the 
 time and frequency domain for when $L$ equals 3. 
 
@@ -377,7 +377,7 @@ if the original, continuous signal has a discrete spectral density distribution 
 Nyquist limit.  In practice, errors may be introduced from aliased spectral leakage. 
 
 Trimming or padding the spectrum is equivalent to convolving a normalized sinc function with the original series 
-wrapped periodically.  Consequenty, errors will be introduced into the beginning and end of the
+wrapped periodically.  Consequently, errors will be introduced into the beginning and end of the
 resampled signal.  How far and significantly this error propagates away from the time series' edges depends 
 on the width of the sinc function which is set by the resampling factors $L$ and $M$: 
 \begin{equation} \label{eq:sinc}
@@ -451,7 +451,7 @@ streams are processed independently and in a serial fashion.}
 
 We are developing a software solution to the resampling problem called APHIDS.  This 
 open-source project is written in C/CUDA using
-the High Availibility Shared Pipeline 
+the High Availability Shared Pipeline 
 (HASHPIPE)\footnote{\url{https://github.com/david-macmahon/hashpipe}}.  The software is designed to use 
 modularized, lightweight threads to handle reading data packets from hard drives, resampling on a GPU cluster, 
 and then writing back to separate disks.  These three steps are each loosely mapped to threads we call the 
@@ -468,7 +468,7 @@ APHIDS features three main hardware components: an I/O data system, CPU, and GPU
 EHT observations taken by SWARM in March 2015 have been stored on four disk-packs that each hold eight, 
 6\,TB hard drives (totaling 192\,TB of disk space).  The Mark6 VLBI data system has four modules 
 that can hold one disk-pack and we use
-two seprate Mark6 units to handle the recording and playback of data.  APHIDS itself is run on a separate CPU 
+two separate Mark6 units to handle the recording and playback of data.  APHIDS itself is run on a separate CPU 
 that controls the GPU cluster.
 
 The GPU cluster has four GTX 980 GPUs, each with 4GB of local memory.  Data from the CPU (or host) is copied over 
@@ -530,11 +530,11 @@ what resampling algorithm is used the SWARM spectra must
 be transformed into the time domain, the guard bands trimmed and the signal modulated.  These operations are done 
 naturally in the Fourier domain.  However, the cost of the resampling operation will be largely dominated by 
 these operations.  Lastly, we can utilize the optimized cuFFT library
-\footnote{\url{https://developer.nvidia.com/cuFFT}} to ensure good performace, reduce development time and 
+\footnote{\url{https://developer.nvidia.com/cuFFT}} to ensure good performance, reduce development time and 
 maintain a manageably sized codebase.
 
 The APHIDS resampling block is composed of three 1-dimensional FFTs (A, B, and C; see Figure 
-\ref{fig:resampling_block}).  Following the cuFFT API reference to improve performace, we utilize batched
+\ref{fig:resampling_block}).  Following the cuFFT API reference to improve performance, we utilize batched
 FFTs (launching more than one FFT at a time using the cuFFT API), out-of-place transforms, 
 and operate on contiguous chunks of memory.  We also use single precision transforms to 
 reduce the memory transfer bandwidth and ensure that 
@@ -549,7 +549,7 @@ the Cooley-Tukey algorithm.  However, on our cluster the cuFFT library exhibits 
 with transform size up to N of 16384 (see Figure \ref{fig:C2R_performance}).  This behavior is consistent with 
 the CUDA 7.0 performance 
 report\footnote{\url{http://on-demand.gputechconf.com/gtc/2015/webinar/gtc-express-cuda7-performance-overview.pdf}} 
-and we find that this transform, just ouside of the optimal regime, operates at 6.7 Gsps.
+and we find that this transform, just outside of the optimal regime, operates at 6.7 Gsps.
 
 \begin{figure}[t!]
 \epsscale{0.95}
@@ -561,8 +561,8 @@ resampling FFT sizes ($N_B$).  The benchmark conventions follow FFTW  (http://ww
 \end{figure}
 
 Next, we Fourier transform chunks of $N_B = 19968$ consecutive time series samples (B).  The resulting 
-spectrum has a frequency resolution of $2496$\,MHz$/19958=125$\,kHz.  The folllowing step is to apply a third
-complex-to-real transform (C) on a subset of the spectrum, using only frequences from $150$\,MHz to $1174$\,MHz.  
+spectrum has a frequency resolution of $2496$\,MHz$/19958=125$\,kHz.  The following step is to apply a third
+complex-to-real transform (C) on a subset of the spectrum, using only frequencies from $150$\,MHz to $1174$\,MHz.  
 The final time series has size $N_C= 2\times(1174-150)/0.125=16384$ per batch element and our desired 
 sampling rate of 
 $16384 \times 0.125$\,MHz$ = 2048$\,MHz.  This simple operation simultaneously resamples the signal, modulates 
@@ -630,7 +630,7 @@ Quantize (2-bit)       & 12.0 & 27.3 \\
 \subsection{FFT Accuracy}
 One concern with using multiple FFTs to change the sampling rate is the error introduced by bit growth.  The 
 floating point error grows as $\mathcal{O}(\sqrt{\log{N}})$ \citep{schatzman96} on average for the Cooley-Tukey
-algorithm, but errors can be exacerbated by innacurate twiddle factors or our choice of FFT algorithm (see
+algorithm, but errors can be exacerbated by inaccurate twiddle factors or our choice of FFT algorithm (see
 benchFFT\footnote{\url{http://www.fftw.org/accuracy/}}).  We have computed the accuracy of the cuFFT library 
 using single precision for 
 radix-2 transforms as well as the $N_b = 19968$ case in Figure \ref{fig:fft_accuracy}.  These values 
@@ -706,19 +706,19 @@ shortly.
 
 APHIDS promises to be an important tool for the EHT.  It crucially enables the correlation in
 DIFX of non-standard sampling rates and also provides a platform for any general pre-processing of 
-VLBI data.  It features fast data I/O from Mark6 recorders and GPU accelarated processing.  
+VLBI data.  It features fast data I/O from Mark6 recorders and GPU accelerated processing.  
 We have demonstrated the correctness and speed of this design and its immediate applicability to 
 the 2015 EHT data.  However,
 there remain a number of challenges for future development of the software.
 
 For future VLBI campaigns at the SMA, it would be ideal if APHIDS could run in real-time 
 at the backend of the SDBE.  This would reduce the media requirements and also the 
-hassle of post-processing the data offsite.  However, the performance will need to improve as the
+hassle of post-processing the data off-site.  However, the performance will need to improve as the
 SWARM data rates increase and if the front-end of the pipeline is optimized to reduce the 
-amount of SNR loss from quantization.  Additionally, some analysis on the cooling requiremeents 
+amount of SNR loss from quantization.  Additionally, some analysis on the cooling requirements 
 of the cards should be conducted to ensure that the GTX980s used in our GPU cluster can safely run 
 at the altitude of the SMA (4100\,meters).  Regardless of where it operates, APHIDS will need 
-maintence to remain compatible with SWARM as it and the SDBE are updated.  The current 
+maintenance to remain compatible with SWARM as it and the SDBE are updated.  The current 
 git repository and its wiki is a good solution for keeping track of versioning and performance status.
 
 %\includepdf[pages={1}]{aphids/089-0810_JS_fix.pdf}
